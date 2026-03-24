@@ -414,15 +414,33 @@ const RESOURCES = {
     minAge: 18,
     medicalCert: "תעודת רופא — בריאות תקינה, ראייה תקינה, אבחנת צבעים תקינה",
     exams: [
-      { name: "ימאות ג׳", type: "עיוני", questions: 50, time: "90 דקות", passing: "86/100 (עד 7 טעויות)" },
-      { name: "מכונאות", type: "עיוני", questions: 50, time: "90 דקות", passing: "86/100 (עד 7 טעויות)" },
-      { name: "ניווט חופי א׳", type: "עיוני", questions: "6 שאלות פתוחות + שרטוט", time: "120 דקות", passing: "86/100" },
-      { name: "ניווט מכשירים ב׳", type: "עיוני", questions: 50, time: "90 דקות", passing: "86/100 (עד 7 טעויות)" },
-      { name: "מבחן מעשי מסכם", type: "מעשי", questions: "—", time: "—", passing: "עפ״י שיקול בוחן" },
+      { name: "ימאות ג׳", type: "עיוני", questions: "אמריקאי (רב-ברירה)", time: "90 דקות", passing: "90% לפחות" },
+      { name: "מכונאות (משיט 30)", type: "עיוני", questions: "אמריקאי (רב-ברירה)", time: "60 דקות", passing: "90% לפחות" },
+      { name: "ניווט חופי א׳", type: "עיוני", questions: "שאלות פתוחות + שרטוט מפה", time: "—", passing: "90% לפחות" },
+      { name: "ניווט מכשירים ב׳", type: "עיוני", questions: "אמריקאי (רב-ברירה)", time: "90 דקות", passing: "90% לפחות" },
+      { name: "מבחן מעשי מסכם", type: "מעשי", questions: "—", time: "~2 שעות", passing: "עפ״י שיקול בוחן" },
     ],
-    safetyWarning: "טעות בשאלת בטיחות חיי אדם = נכשל אוטומטית!",
+    safetyWarning: "טעות מהותית (התנגשות, שרטון, סיכון נוסעים, אי-זיהוי צולל/מצוקה) = נכשל אוטומטית, גם עם ציון 90%!",
+    examValidity: "שנתיים מתאריך הבחינה (לספינות). לא תישלח התרעה לפני פקיעת התוקף.",
+    examLocations: [
+      { city: "חיפה", address: "בניין המפרש, משרד התחבורה, קריית הממשלה, שד׳ פל-ים 15א׳, בניין ב׳" },
+      { city: "תל אביב", address: "קלאוזנר 14, תל אביב" },
+      { city: "טבריה", address: "גליל סנטר, רחוב הגליל 52" },
+      { city: "אילת", address: "ליד ביה״ס גולדווטר, השיטה 4" },
+    ],
     submissionAddress: "אגף לכלי שיט קטנים ומשיטים, ת.ד. 804, חיפה 31999",
-    payment: "תשלום הנפקת תעודה — שירות התשלומים הממשלתי או בנק הדואר",
+    payment: "תשלום אגרה נדרש לפני כל מבחן — שירות התשלומים הממשלתי או בנק הדואר",
+    results: "תוצאות ~7 ימים לאחר המבחן. תעודה נשלחת בדואר לכתובת במשרד הפנים.",
+    permissions: "שייט חופי: ספינות מנוע, מפרש ומפרש+מנוע עזר. סירות בכל ההספקים (למעט הובלת נוסעים בשכר).",
+    restrictions: "לא מתיר: אופנוע ים (הסמכה נפרדת), שייט בינלאומי (דורש משיט 60).",
+    questionBankPdfs: [
+      { name: "ימאות ג׳ — משיט 30", url: "https://www.gov.il/BlobFolder/generalpage/machsan1/he/sq3.pdf" },
+      { name: "ניווט חופי א׳", url: "https://www.gov.il/BlobFolder/generalpage/machsan1/he/sq4.pdf" },
+      { name: "ניווט מכשירים ב׳", url: "https://www.gov.il/BlobFolder/generalpage/machsan1/he/sq5.pdf" },
+      { name: "מכונאות — משיט 30", url: "https://www.gov.il/BlobFolder/generalpage/machsan1/he/sq6.pdf" },
+    ],
+    syllabusUrl: "https://www.gov.il/BlobFolder/guide/sailing-certificate/he/syllabus-meshitim-2026.pdf",
+    paymentUrl: "https://ecom.gov.il/voucherspa/input/424",
   },
 };
 
@@ -868,24 +886,30 @@ function Resources({ subject, onBack }) {
 
       {/* Exam Info - Official Requirements */}
       <div style={sectionTitle}><span>ℹ️</span> מידע רשמי על המבחנים</div>
-      <div style={{ ...cardBase, marginBottom: 10 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#0077B6", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
-          🏛️ מקור: רשות הספנות והנמלים — gov.il
+      <div style={{ ...cardBase, marginBottom: 10, borderColor: "#0077B640" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#0077B6", marginBottom: 12, display: "flex", alignItems: "center", gap: 6 }}>
+          🏛️ מקור: רשות הספנות והנמלים — gov.il (עדכון 2026)
         </div>
-        <div style={{ fontSize: 14, lineHeight: 2, color: "var(--text)" }}>
+        <div style={{ fontSize: 14, lineHeight: 2.2, color: "var(--text)" }}>
           <div>• <strong style={{ color: "#0077B6" }}>גיל מינימלי:</strong> {RESOURCES.examRequirements.minAge} שנים</div>
           <div>• <strong style={{ color: "#0077B6" }}>אישור רפואי:</strong> {RESOURCES.examRequirements.medicalCert}</div>
-          <div>• <strong style={{ color: "#E63946" }}>⚠️ {RESOURCES.examRequirements.safetyWarning}</strong></div>
+          <div>• <strong style={{ color: "#0077B6" }}>תוקף מבחנים:</strong> {RESOURCES.examRequirements.examValidity}</div>
+          <div>• <strong style={{ color: "#0077B6" }}>תוצאות:</strong> {RESOURCES.examRequirements.results}</div>
+          <div>• <strong style={{ color: "#2A9D8F" }}>ההסמכה מתירה:</strong> {RESOURCES.examRequirements.permissions}</div>
+          <div>• <strong style={{ color: "#E63946" }}>הגבלות:</strong> {RESOURCES.examRequirements.restrictions}</div>
+        </div>
+        <div style={{ marginTop: 12, padding: "10px 14px", borderRadius: 10, background: "#E6394610", border: "1px solid #E6394630" }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#E63946" }}>⚠️ {RESOURCES.examRequirements.safetyWarning}</div>
         </div>
       </div>
 
       {/* Exams Table */}
       <div style={{ ...cardBase, overflowX: "auto", marginBottom: 10 }}>
-        <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>📋 פירוט המבחנים</div>
+        <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>📋 פירוט 5 המבחנים</div>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
           <thead>
             <tr style={{ borderBottom: "2px solid var(--border)" }}>
-              {["מבחן", "סוג", "שאלות", "זמן", "ציון עובר"].map(h => (
+              {["מבחן", "סוג", "פורמט", "זמן", "ציון עובר"].map(h => (
                 <th key={h} style={{ padding: "8px 6px", textAlign: "right", fontWeight: 700, color: "#0077B6", fontSize: 12 }}>{h}</th>
               ))}
             </tr>
@@ -895,7 +919,7 @@ function Resources({ subject, onBack }) {
               <tr key={i} style={{ borderBottom: "1px solid var(--border)" }}>
                 <td style={{ padding: "8px 6px", fontWeight: 600, color: "var(--text)" }}>{e.name}</td>
                 <td style={{ padding: "8px 6px", color: "var(--muted)" }}>{e.type}</td>
-                <td style={{ padding: "8px 6px", color: "var(--text)" }}>{e.questions}</td>
+                <td style={{ padding: "8px 6px", color: "var(--text)", fontSize: 12 }}>{e.questions}</td>
                 <td style={{ padding: "8px 6px", color: "var(--text)" }}>{e.time}</td>
                 <td style={{ padding: "8px 6px", color: "#2A9D8F", fontWeight: 600 }}>{e.passing}</td>
               </tr>
@@ -904,12 +928,45 @@ function Resources({ subject, onBack }) {
         </table>
       </div>
 
-      {/* Submission Info */}
+      {/* Exam Locations */}
       <div style={{ ...cardBase, marginBottom: 10 }}>
-        <div style={{ fontSize: 14, lineHeight: 2, color: "var(--text)" }}>
+        <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>📍 מיקומי בחינה</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 8 }}>
+          {RESOURCES.examRequirements.examLocations.map((loc, i) => (
+            <div key={i} style={{ padding: "10px 14px", borderRadius: 10, background: "var(--bg)", border: "1px solid var(--border)" }}>
+              <div style={{ fontWeight: 700, fontSize: 14, color: "#0077B6", marginBottom: 2 }}>{loc.city}</div>
+              <div style={{ fontSize: 12, color: "var(--muted)", lineHeight: 1.5 }}>{loc.address}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Submission & Payment */}
+      <div style={{ ...cardBase, marginBottom: 10 }}>
+        <div style={{ fontSize: 14, lineHeight: 2.2, color: "var(--text)" }}>
           <div>• <strong style={{ color: "#0077B6" }}>הגשת מסמכים:</strong> {RESOURCES.examRequirements.submissionAddress}</div>
           <div>• <strong style={{ color: "#0077B6" }}>תשלום:</strong> {RESOURCES.examRequirements.payment}</div>
         </div>
+        <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
+          <a href={RESOURCES.examRequirements.paymentUrl} target="_blank" rel="noopener noreferrer"
+            style={{ ...btnStyle, background: "#2A9D8F", color: "#fff", textDecoration: "none", fontSize: 13, padding: "8px 16px" }}>💳 תשלום אגרות אונליין</a>
+          <a href={RESOURCES.examRequirements.syllabusUrl} target="_blank" rel="noopener noreferrer"
+            style={{ ...btnStyle, background: "#0077B6", color: "#fff", textDecoration: "none", fontSize: 13, padding: "8px 16px" }}>📄 סילבוס 2026 (PDF)</a>
+        </div>
+      </div>
+
+      {/* Official Question Bank PDFs */}
+      <div style={sectionTitle}><span>📝</span> מאגרי שאלות רשמיים — רשות הספנות</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 10 }}>
+        {RESOURCES.examRequirements.questionBankPdfs.map((pdf, i) => (
+          <a key={i} href={pdf.url} target="_blank" rel="noopener noreferrer" style={{ ...cardBase, textDecoration: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 20 }}>📄</span>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 13, color: "var(--text)" }}>{pdf.name}</div>
+              <div style={{ fontSize: 11, color: "#0077B6" }}>PDF — הורדה</div>
+            </div>
+          </a>
+        ))}
       </div>
 
       {/* Gov.il Links */}
