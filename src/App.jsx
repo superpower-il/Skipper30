@@ -300,6 +300,132 @@ const SUBJECTS = {
 
 const SUBJECT_LIST = Object.values(SUBJECTS);
 
+// ─── RESOURCES DATA ─────────────────────────────────────────────────────────
+
+const RESOURCES = {
+  videos: {
+    seamanship: [
+      // Full lessons (~2 hours each)
+      { title: "שיעור מלא — חוקי דרך בים", channel: "YachTime", id: "5GyAfFjXiAA", desc: "שיעור מלא (117 דק׳) על חוקי מניעת התנגשויות — COLREGs", tag: "שיעור מלא" },
+      { title: "שיעור מלא — עגינה, חבלים ורתיקה", channel: "YachTime", id: "Q7Uod1PrKUo", desc: "שיעור מלא (109 דק׳) — עגינה, סוגי חבלים, קשרים וגרירה", tag: "שיעור מלא" },
+      { title: "שיעור מלא — מטאורולוגיה", channel: "YachTime", id: "PqSRG4nBzbY", desc: "שיעור מלא (109 דק׳) — מזג אוויר, מפות סינופטיות, סולם בופור", tag: "שיעור מלא" },
+      { title: "שיעור מלא — מקרים ותגובות וים סוער", channel: "YachTime", id: "XbrAg96Ua4s", desc: "שיעור מלא (111 דק׳) — מצבי חירום, ים סוער, אדם בים", tag: "שיעור מלא" },
+      // Short animated chapters
+      { title: "חלקי היאכטה", channel: "YachTime", id: "0NDj2a5X0eA", desc: "פרק 1 — מבנה היאכטה ומונחים בסיסיים (22 דק׳)", tag: "פרק קצר" },
+      { title: "תקנות למניעת התנגשות", channel: "YachTime", id: "Nn6G-GLqaUg", desc: "פרק 7 — כללי COLREGs (11 דק׳)", tag: "פרק קצר" },
+      { title: "חוקי דרך — קטגוריות כלי שייט", channel: "YachTime", id: "5WNTNeTZE0Q", desc: "פרק 8 — זכויות קדימה לפי סוג כלי שייט (40 דק׳)", tag: "פרק קצר" },
+      { title: "פינוי דרך", channel: "YachTime", id: "a9_iksuklNQ", desc: "פרק 9 — כללי פינוי דרך ותמרון (13 דק׳)", tag: "פרק קצר" },
+      { title: "אותות קוליים", channel: "YachTime", id: "Xt14LuU38XM", desc: "פרק 10 — צפירות וסימנים קוליים (9 דק׳)", tag: "פרק קצר" },
+      { title: "מיצוף ומגדלורים", channel: "YachTime", id: "65hPTMkMEew", desc: "פרק 11 — מערכת מיצוף ותאורות (10 דק׳)", tag: "פרק קצר" },
+      { title: "סימני מצוקה", channel: "YachTime", id: "31rQux91Ukk", desc: "פרק 12 — זיקוקים ואותות מצוקה (11 דק׳)", tag: "פרק קצר" },
+      { title: "תקנות ספנות", channel: "YachTime", id: "V_zf9dI6sWs", desc: "פרק 13 — תקנות ודיני ספנות (22 דק׳)", tag: "פרק קצר" },
+      { title: "כבלים, חבלים וגלגלות", channel: "YachTime", id: "ZSWDILCcqVg", desc: "פרק 14 — סוגי חבלים ושימושים (27 דק׳)", tag: "פרק קצר" },
+      { title: "רתיקה", channel: "YachTime", id: "4HhmkjkX9HY", desc: "פרק 15 — טכניקות רתיקה (10 דק׳)", tag: "פרק קצר" },
+      { title: "גרירה", channel: "YachTime", id: "Z7xqj1B5g5M", desc: "פרק 16 — נהלי גרירה בים (16 דק׳)", tag: "פרק קצר" },
+      { title: "עגינה", channel: "YachTime", id: "rH9PW9HyWdM", desc: "פרק 17 — סוגי עגינה וטכניקות (45 דק׳)", tag: "פרק קצר" },
+      { title: "מטאורולוגיה", channel: "YachTime", id: "Rz4b3i4iTYo", desc: "פרק 18 — יסודות מטאורולוגיה ימית (28 דק׳)", tag: "פרק קצר" },
+      { title: "גלים", channel: "YachTime", id: "Z7tDGEvg5QY", desc: "פרק 19 — סוגי גלים והתנהגותם (19 דק׳)", tag: "פרק קצר" },
+      { title: "שקע ורמה", channel: "YachTime", id: "FXJfm6hNjBE", desc: "פרק 20 — לחץ אטמוספרי (8 דק׳)", tag: "פרק קצר" },
+      { title: "שקע חזיתי", channel: "YachTime", id: "nPiMIapoGDU", desc: "פרק 21 — חזיתות קרות וחמות (22 דק׳)", tag: "פרק קצר" },
+      { title: "מערכות מזג אוויר", channel: "YachTime", id: "0M0X97obWIo", desc: "פרק 22 — מערכות מזג אוויר באזורנו (21 דק׳)", tag: "פרק קצר" },
+      { title: "תדרוך לפני יציאה לים", channel: "YachTime", id: "3IUbekLShnE", desc: "פרק 23 — הכנות והתדרוך (14 דק׳)", tag: "פרק קצר" },
+      { title: "ים סוער", channel: "YachTime", id: "dXSi7IYEyV0", desc: "פרק 24 — שייט בתנאי ים סוער (23 דק׳)", tag: "פרק קצר" },
+      { title: "אסדה ונטישה", channel: "YachTime", id: "9L86bfZUt9A", desc: "פרק 25 — נהלי נטישת ספינה (23 דק׳)", tag: "פרק קצר" },
+      { title: "שריפה", channel: "YachTime", id: "5rqvui5tZQQ", desc: "פרק 27 — כיבוי אש בספינה (14 דק׳)", tag: "פרק קצר" },
+      { title: "מקרים ותגובות", channel: "YachTime", id: "Pn5sW1D-lFg", desc: "פרק 28 — מצבי חירום ותגובות (29 דק׳)", tag: "פרק קצר" },
+      { title: "אדם בים", channel: "YachTime", id: "BKjKfOQxdzE", desc: "פרק 29 — חילוץ אדם מהמים (7 דק׳)", tag: "פרק קצר" },
+      // Other channels
+      { title: "סרטון הדרכה לקשרים", channel: "YachTime", id: "6G1Aajg3Rlk", desc: "הדגמת קשירת קשרים ימיים (4 דק׳)", tag: "מעשי" },
+      { title: "פתרון שאלות ניווט חופי", channel: "Get Sailor", id: "W9XXQwyQeHw", desc: "פתרון שאלה מתוך מאגר רשות הספנות", tag: "תרגול" },
+    ],
+    mechanics: [
+      { title: "תמרוני מנוע", channel: "YachTime", id: "7b0556nMYLA", desc: "פרק 6 — תמרוני מנוע ומדחף (17 דק׳)", tag: "פרק קצר" },
+      { title: "שיעורי מכונאות ימית", channel: "Millylearn", id: null, url: "https://www.youtube.com/@Millylearn", desc: "שיעורים קצרים על מנועי דיזל, מערכות חשמל ומדחפים", tag: "ערוץ" },
+    ],
+    navigation_coastal: [
+      { title: "פתרון שאלות ניווט חופי", channel: "Get Sailor", id: "W9XXQwyQeHw", desc: "פתרון מלא של שאלת ניווט חופי מתוך מאגר השאלות", tag: "תרגול" },
+      { title: "הסברים וסרטונים לניווט", channel: "Nivut24", id: null, url: "https://www.nivut24.co.il", desc: "פתרונות מפורטים לכל שאלות הניווט ממאגר רשות הספנות", tag: "אתר" },
+    ],
+    navigation_instruments: [
+      { title: "ניווט מכשירים — שיעורים", channel: "Millylearn", id: null, url: "https://www.youtube.com/@Millylearn", desc: "סקירת מכשירי ניווט: מצפן, GPS, מכ״ם, אקו סאונדר", tag: "ערוץ" },
+    ],
+  },
+  books: [
+    {
+      title: "ימאות יאכטות",
+      author: "גיורא קדר",
+      edition: "מהדורה 9, 2003",
+      price: "~70 ₪ (יד שנייה)",
+      subjects: ["ימאות", "מפרשים", "עגינה", "מטאורולוגיה", "עזרה ראשונה"],
+      desc: "הספר המקיף ביותר בעברית על ימאות ויאכטינג. חובה לכל מי שניגש למבחנים.",
+      icon: "📘",
+    },
+    {
+      title: "מדריך השיט הישראלי",
+      author: "גיורא קדר (עורך)",
+      edition: "מהדורה 14",
+      price: "120 ₪",
+      subjects: ["COLREGs", "מטאורולוגיה חופית", "תקנות כלי שייט קטנים", "בטיחות"],
+      desc: "מכיל את חוקי מניעת התנגשויות (COLREGs) בעברית, תקנות ספנות, ומידע מקיף על כלי שייט קטנים.",
+      icon: "📗",
+    },
+    {
+      title: "ניווט חופי",
+      author: "חיים פריימן",
+      edition: "1993, המרכז לחינוך טכנולוגי חולון",
+      price: "קשה להשגה — חפשו יד שנייה",
+      subjects: ["רשת גיאוגרפית", "מפות ימיות", "קביעת מיקום", "שרטוט קורס", "גאות ושפל"],
+      desc: "ספר הלימוד הקלאסי לניווט חופי. מכסה את כל הנושאים הנדרשים למבחן.",
+      icon: "📙",
+    },
+    {
+      title: "ספר 5011 — סימנים וקיצורים במפות ימיות",
+      author: "UKHO (מותאם)",
+      edition: "מהדורה בינלאומית",
+      price: "חינם באינטרנט (PDF)",
+      subjects: ["סימני מפות", "קיצורים", "ניווט חופי"],
+      desc: "מדריך הסימנים והקיצורים הרשמי לקריאת מפות ימיות — חיוני למבחן ניווט חופי.",
+      icon: "📕",
+    },
+  ],
+  platforms: [
+    { name: "Skipper24", url: "https://www.skipper24.org", desc: "אלפי שאלות תרגול חינם בפורמט המבחן האמיתי", icon: "🌐" },
+    { name: "IsraelSails", url: "http://www.israelsails.com", desc: "מבחנים ממוחשבים לכל נושאי משיט 30", icon: "⛵" },
+    { name: "Nivut24", url: "https://www.nivut24.co.il", desc: "הסברים ופתרונות מפורטים למאגר שאלות הניווט", icon: "🗺️" },
+    { name: "Sail.co.il", url: "https://www.sail.co.il", desc: "מאגרי שאלות לימאות, מכונאות וניווט מכשירים", icon: "📝" },
+    { name: "Millylearn", url: "https://www.millylearn.com", desc: "פלטפורמת לימוד עצמי עם וידאו ותרגול חכם", icon: "🎓" },
+    { name: "Get Sailor", url: "https://www.getsailor.com", desc: "קורס דיגיטלי מלא + שיעורים מוקלטים ביוטיוב", icon: "🚤" },
+    { name: "YachTime — קורס ימאות מלא", url: "https://my.schooler.biz/s/18744/yachtime-%D7%99%D7%9E%D7%90%D7%95%D7%AA/23", desc: "52 שיעורים: סרטונים, מבחנים, חוברות — קורס מקיף עם 34 סרטוני יוטיוב", icon: "🎬" },
+    { name: "Sea Time — פורטל לימוד", url: "https://sea-time.co.il/lessons/intro/", desc: "שיעורי וידאו חינמיים בפורטל הלימוד", icon: "📺" },
+    { name: "V-Vela — סימולציית מבחנים", url: "https://v-vela.com", desc: "סימולציות מבחנים בפורמט זהה למבחן האמיתי", icon: "✅" },
+  ],
+  apps: [
+    { name: "סקיפר — מאגר שאלות הרספן", developer: "Schneur Rosenberg", android: "https://play.google.com/store/apps/details?id=com.sipguy.skipper", ios: "https://apps.apple.com/il/app/id1528534084", desc: "כל שאלות מאגר רשות הספנות — תרגול עד שמצליחים", icon: "📱" },
+  ],
+  govLinks: [
+    { name: "מאגר שאלות רשמי — רשות הספנות", url: "https://www.gov.il/he/departments/general/exame_small_vessel", icon: "🏛️" },
+    { name: "הסמכות משיטים — כל הדרגות", url: "https://www.gov.il/he/pages/sailing-certificate?chapterIndex=6", icon: "📜" },
+    { name: "בקשה להוצאת תעודת משיט", url: "https://www.gov.il/he/service/request-for-issuing-skipper-license", icon: "📋" },
+    { name: "אגרות רשות הספנות והנמלים", url: "https://www.gov.il/he/departments/general/fees_asp", icon: "💳" },
+    { name: "תנאים מוקדמים — משיט 30", url: "http://asp.mot.gov.il/he/shipping/opercraft/sco/grade-30/82-g30-1", icon: "✅" },
+    { name: "מאגר שאלות למשיטים (MOT)", url: "http://asp.mot.gov.il/he/shipping/opercraft/sco/120-tq", icon: "📝" },
+  ],
+  examRequirements: {
+    minAge: 18,
+    medicalCert: "תעודת רופא — בריאות תקינה, ראייה תקינה, אבחנת צבעים תקינה",
+    exams: [
+      { name: "ימאות ג׳", type: "עיוני", questions: 50, time: "90 דקות", passing: "86/100 (עד 7 טעויות)" },
+      { name: "מכונאות", type: "עיוני", questions: 50, time: "90 דקות", passing: "86/100 (עד 7 טעויות)" },
+      { name: "ניווט חופי א׳", type: "עיוני", questions: "6 שאלות פתוחות + שרטוט", time: "120 דקות", passing: "86/100" },
+      { name: "ניווט מכשירים ב׳", type: "עיוני", questions: 50, time: "90 דקות", passing: "86/100 (עד 7 טעויות)" },
+      { name: "מבחן מעשי מסכם", type: "מעשי", questions: "—", time: "—", passing: "עפ״י שיקול בוחן" },
+    ],
+    safetyWarning: "טעות בשאלת בטיחות חיי אדם = נכשל אוטומטית!",
+    submissionAddress: "אגף לכלי שיט קטנים ומשיטים, ת.ד. 804, חיפה 31999",
+    payment: "תשלום הנפקת תעודה — שירות התשלומים הממשלתי או בנק הדואר",
+  },
+};
+
 // ─── UTILITY ────────────────────────────────────────────────────────────────
 
 function markdownToHtml(md, accentColor) {
@@ -604,6 +730,204 @@ function AIChat({ onBack }) {
   );
 }
 
+function Resources({ subject, onBack }) {
+  const [videoFilter, setVideoFilter] = useState("all");
+  const subjectVideos = subject ? RESOURCES.videos[subject.id] || [] : [];
+  const tags = [...new Set(subjectVideos.map(v => v.tag))];
+  const filteredVideos = videoFilter === "all" ? subjectVideos : subjectVideos.filter(v => v.tag === videoFilter);
+
+  const sectionTitle = { fontSize: 18, fontWeight: 800, color: "var(--text)", margin: "28px 0 14px", display: "flex", alignItems: "center", gap: 8 };
+  const cardBase = { background: "var(--card)", borderRadius: 14, padding: "16px 18px", border: "1px solid var(--border)", transition: "all 0.2s" };
+
+  return (
+    <div style={{ padding: "16px 24px" }}>
+      <button onClick={onBack} style={{ ...btnSmall, color: "var(--muted)", marginBottom: 8 }}>← חזרה</button>
+      <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 900, color: "var(--text)" }}>
+        📚 חומרי לימוד {subject ? `— ${subject.name}` : ""}
+      </h2>
+      <p style={{ margin: "0 0 8px", fontSize: 13, color: "var(--muted)" }}>סרטונים, ספרים ופלטפורמות לימוד למבחני משיט 30</p>
+
+      {/* YouTube Videos */}
+      {subjectVideos.length > 0 && (
+        <>
+          <div style={sectionTitle}><span>🎬</span> סרטוני יוטיוב ({subjectVideos.length})</div>
+
+          {/* Filter tags */}
+          {tags.length > 1 && (
+            <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
+              <button onClick={() => setVideoFilter("all")} style={{
+                ...btnStyle, padding: "6px 14px", fontSize: 12,
+                background: videoFilter === "all" ? "#0077B6" : "var(--card)", color: videoFilter === "all" ? "#fff" : "var(--muted)",
+                border: `1px solid ${videoFilter === "all" ? "#0077B6" : "var(--border)"}`,
+              }}>הכל ({subjectVideos.length})</button>
+              {tags.map(t => {
+                const count = subjectVideos.filter(v => v.tag === t).length;
+                return (
+                  <button key={t} onClick={() => setVideoFilter(t)} style={{
+                    ...btnStyle, padding: "6px 14px", fontSize: 12,
+                    background: videoFilter === t ? "#0077B6" : "var(--card)", color: videoFilter === t ? "#fff" : "var(--muted)",
+                    border: `1px solid ${videoFilter === t ? "#0077B6" : "var(--border)"}`,
+                  }}>{t} ({count})</button>
+                );
+              })}
+            </div>
+          )}
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {filteredVideos.map((v, i) => (
+              <div key={i} style={cardBase}>
+                {v.id ? (
+                  <div style={{ borderRadius: 10, overflow: "hidden", marginBottom: 12, position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${v.id}`}
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                    />
+                  </div>
+                ) : null}
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                  <span style={{ fontWeight: 700, fontSize: 15, color: "var(--text)" }}>{v.title}</span>
+                  {v.tag && <span style={{ fontSize: 10, padding: "2px 8px", borderRadius: 10, background: "#0077B615", color: "#0077B6", fontWeight: 600 }}>{v.tag}</span>}
+                </div>
+                <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 4 }}>ערוץ: {v.channel}</div>
+                <div style={{ fontSize: 13, color: "var(--text)", lineHeight: 1.6 }}>{v.desc}</div>
+                {!v.id && v.url && (
+                  <a href={v.url} target="_blank" rel="noopener noreferrer"
+                    style={{ display: "inline-block", marginTop: 8, fontSize: 13, color: "#0077B6", fontWeight: 600, textDecoration: "none" }}>
+                    צפה בערוץ ←
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Books */}
+      <div style={sectionTitle}><span>📖</span> ספרי לימוד מומלצים</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {RESOURCES.books.map((b, i) => (
+          <div key={i} style={cardBase}>
+            <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+              <span style={{ fontSize: 32 }}>{b.icon}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 700, fontSize: 16, color: "var(--text)" }}>{b.title}</div>
+                <div style={{ fontSize: 13, color: "var(--muted)", margin: "2px 0 6px" }}>{b.author} · {b.edition}</div>
+                <div style={{ fontSize: 13, color: "var(--text)", lineHeight: 1.6, marginBottom: 8 }}>{b.desc}</div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
+                  {b.subjects.map((s, j) => (
+                    <span key={j} style={{ fontSize: 11, padding: "3px 8px", borderRadius: 12, background: "#0077B615", color: "#0077B6", fontWeight: 600 }}>{s}</span>
+                  ))}
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#2A9D8F" }}>💰 {b.price}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Online Platforms */}
+      <div style={sectionTitle}><span>💻</span> פלטפורמות לימוד ותרגול</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 10 }}>
+        {RESOURCES.platforms.map((p, i) => (
+          <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ ...cardBase, textDecoration: "none", cursor: "pointer", display: "block" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+              <span style={{ fontSize: 22 }}>{p.icon}</span>
+              <span style={{ fontWeight: 700, fontSize: 15, color: "var(--text)" }}>{p.name}</span>
+            </div>
+            <div style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.5 }}>{p.desc}</div>
+          </a>
+        ))}
+      </div>
+
+      {/* Apps */}
+      <div style={sectionTitle}><span>📱</span> אפליקציות</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {RESOURCES.apps.map((a, i) => (
+          <div key={i} style={cardBase}>
+            <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+              <span style={{ fontSize: 32 }}>{a.icon}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)" }}>{a.name}</div>
+                <div style={{ fontSize: 12, color: "var(--muted)", margin: "2px 0 6px" }}>מפתח: {a.developer}</div>
+                <div style={{ fontSize: 13, color: "var(--text)", lineHeight: 1.5, marginBottom: 8 }}>{a.desc}</div>
+                <div style={{ display: "flex", gap: 10 }}>
+                  <a href={a.android} target="_blank" rel="noopener noreferrer"
+                    style={{ fontSize: 13, color: "#2A9D8F", fontWeight: 600, textDecoration: "none" }}>Android ←</a>
+                  <a href={a.ios} target="_blank" rel="noopener noreferrer"
+                    style={{ fontSize: 13, color: "#0077B6", fontWeight: 600, textDecoration: "none" }}>iOS ←</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Exam Info - Official Requirements */}
+      <div style={sectionTitle}><span>ℹ️</span> מידע רשמי על המבחנים</div>
+      <div style={{ ...cardBase, marginBottom: 10 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#0077B6", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+          🏛️ מקור: רשות הספנות והנמלים — gov.il
+        </div>
+        <div style={{ fontSize: 14, lineHeight: 2, color: "var(--text)" }}>
+          <div>• <strong style={{ color: "#0077B6" }}>גיל מינימלי:</strong> {RESOURCES.examRequirements.minAge} שנים</div>
+          <div>• <strong style={{ color: "#0077B6" }}>אישור רפואי:</strong> {RESOURCES.examRequirements.medicalCert}</div>
+          <div>• <strong style={{ color: "#E63946" }}>⚠️ {RESOURCES.examRequirements.safetyWarning}</strong></div>
+        </div>
+      </div>
+
+      {/* Exams Table */}
+      <div style={{ ...cardBase, overflowX: "auto", marginBottom: 10 }}>
+        <div style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", marginBottom: 10 }}>📋 פירוט המבחנים</div>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+          <thead>
+            <tr style={{ borderBottom: "2px solid var(--border)" }}>
+              {["מבחן", "סוג", "שאלות", "זמן", "ציון עובר"].map(h => (
+                <th key={h} style={{ padding: "8px 6px", textAlign: "right", fontWeight: 700, color: "#0077B6", fontSize: 12 }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {RESOURCES.examRequirements.exams.map((e, i) => (
+              <tr key={i} style={{ borderBottom: "1px solid var(--border)" }}>
+                <td style={{ padding: "8px 6px", fontWeight: 600, color: "var(--text)" }}>{e.name}</td>
+                <td style={{ padding: "8px 6px", color: "var(--muted)" }}>{e.type}</td>
+                <td style={{ padding: "8px 6px", color: "var(--text)" }}>{e.questions}</td>
+                <td style={{ padding: "8px 6px", color: "var(--text)" }}>{e.time}</td>
+                <td style={{ padding: "8px 6px", color: "#2A9D8F", fontWeight: 600 }}>{e.passing}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Submission Info */}
+      <div style={{ ...cardBase, marginBottom: 10 }}>
+        <div style={{ fontSize: 14, lineHeight: 2, color: "var(--text)" }}>
+          <div>• <strong style={{ color: "#0077B6" }}>הגשת מסמכים:</strong> {RESOURCES.examRequirements.submissionAddress}</div>
+          <div>• <strong style={{ color: "#0077B6" }}>תשלום:</strong> {RESOURCES.examRequirements.payment}</div>
+        </div>
+      </div>
+
+      {/* Gov.il Links */}
+      <div style={sectionTitle}><span>🏛️</span> קישורים רשמיים — gov.il</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 10 }}>
+        {RESOURCES.govLinks.map((g, i) => (
+          <a key={i} href={g.url} target="_blank" rel="noopener noreferrer" style={{ ...cardBase, textDecoration: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 20 }}>{g.icon}</span>
+            <span style={{ fontWeight: 600, fontSize: 13, color: "var(--text)" }}>{g.name}</span>
+          </a>
+        ))}
+      </div>
+
+      <div style={{ height: 32 }} />
+    </div>
+  );
+}
+
 // ─── MAIN APP ───────────────────────────────────────────────────────────────
 
 export default function App() {
@@ -639,12 +963,17 @@ export default function App() {
         <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
           {view === "home" && (
             <div style={{ padding: "8px 24px 24px" }}>
-              <div style={{ display: "flex", gap: 10, marginBottom: 24 }}>
+              <div style={{ display: "flex", gap: 10, marginBottom: 24, flexWrap: "wrap" }}>
                 <button onClick={() => setView("chat")} style={{
                   ...btnStyle, background: "linear-gradient(135deg, #0077B6, #00B4D8)", color: "#fff",
                   display: "flex", alignItems: "center", gap: 8, whiteSpace: "nowrap",
                   boxShadow: "0 4px 16px rgba(0,119,182,0.25)",
                 }}>💬 שאל את ה-AI</button>
+                <button onClick={() => { setSelectedSubject(null); setView("resources"); }} style={{
+                  ...btnStyle, background: "linear-gradient(135deg, #2A9D8F, #56C596)", color: "#fff",
+                  display: "flex", alignItems: "center", gap: 8, whiteSpace: "nowrap",
+                  boxShadow: "0 4px 16px rgba(42,157,143,0.25)",
+                }}>📚 חומרי לימוד</button>
               </div>
               <h2 style={{ margin: "0 0 16px", fontSize: 16, fontWeight: 700, color: "var(--muted)" }}>ארבעת הנושאים</h2>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 12 }}>
@@ -690,6 +1019,7 @@ export default function App() {
                   { label: "📝 מבחן תרגול", desc: `${Math.min(15, selectedSubject.questions.length)} שאלות אקראיות`, action: () => setView("quiz"), color: selectedSubject.color },
                   { label: "🃏 כרטיסיות לימוד", desc: `${selectedSubject.flashcards.length} כרטיסיות`, action: () => setView("flashcards"), color: "#E9C46A" },
                   { label: "📖 סיכום נושאים", desc: "כל החומר החשוב בקצרה", action: () => setView("summary"), color: "#2A9D8F" },
+                  { label: "📚 חומרי לימוד", desc: "סרטונים, ספרים ופלטפורמות", action: () => setView("resources"), color: "#9B5DE5" },
                   { label: "💬 שאל את ה-AI", desc: "שאל שאלה על הנושא", action: () => setView("chat"), color: "#0077B6" },
                 ].map((item, i) => (
                   <button key={i} onClick={item.action} style={{
@@ -713,6 +1043,7 @@ export default function App() {
           {view === "quiz" && selectedSubject && <Quiz subject={selectedSubject} onBack={() => setView("subject")} onUpdateStats={updateStats} />}
           {view === "flashcards" && selectedSubject && <Flashcards subject={selectedSubject} onBack={() => setView("subject")} />}
           {view === "summary" && selectedSubject && <Summary subject={selectedSubject} onBack={() => setView("subject")} />}
+          {view === "resources" && <Resources subject={selectedSubject} onBack={selectedSubject ? () => setView("subject") : goHome} />}
           {view === "chat" && <AIChat onBack={goHome} />}
         </div>
 
